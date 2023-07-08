@@ -13,4 +13,5 @@ public class test1 {
         User user = (User)applicationContext.getBean("user1");
         System.out.println(user);
     }
+    //
 }
