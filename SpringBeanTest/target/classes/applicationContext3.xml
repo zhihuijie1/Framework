@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation=
+        "http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--
+    Student
+    private String[] books;
+    private Set<String> bookSet;
+    private List<String> bookList;
+    private Map<String, String> bookMap;
+    private List<Book> bookList2;
+    -->
+
+    <!--定义公共集合-->
+
+    <util:list id="outerbooklist">
+        <bean id="book1"  class="com.spring.bean.Book" p:bname="java" p:bauthor="cgj"></bean>
+        <bean id="book2" class="com.spring.bean.Book" p:bname="机器学习" p:bauthor="周志华"></bean>
+        <bean id="book3" class="com.spring.bean.Book" p:bname="神经网络" p:bauthor="很好"></bean>
+    </util:list>
+
+    <bean id="student1" class="com.spring.bean.Student">
+        <!--数组属性的注入-->
+        <property name="books">
+            <array>
+                <value>Java</value>
+                <value>机器学习</value>
+                <value>自然语言处理</value>
+            </array>
+        </property>
+
+        <!--set集合注入-->
+        <property name="bookSet">
+            <set>
+                <value>java</value>
+                <value>机器学习</value>
+                <value>NLP</value>
+            </set>
+        </property>
+
+        <!--list集合注入-->
+        <property name="bookList">
+            <list>
+                <value>java</value>
+                <value>机器学习</value>
+                <value>NLP</value>
+            </list>
+        </property>
+
+        <!--MAP集合注入-->
+        <property name="bookMap">
+            <map>
+                <entry key="JAVA" value="CGJ"></entry>
+                <entry key="机器学习" value="周志华"></entry>
+                <entry key="自然语言处理" value="老杜"></entry>
+            </map>
+        </property>
+
+        <!--list对象集合注入-->
+        <!--<property name="bookList2">
+            <list>
+                <bean class="com.spring.bean.Book" p:bname="java" p:bauthor="cgj"></bean>
+                <bean class="com.spring.bean.Book" p:bname="机器学习" p:bauthor="周志华"></bean>
+                <bean class="com.spring.bean.Book" p:bname="神经网络" p:bauthor="很好"></bean>
+            </list>
+        </property>-->
+
+        <!--list对象集合注入方法二-->
+        <property name="bookList2" ref="outerbooklist"></property>
+    </bean>
+
+    <bean id="factory" class="com.spring.bean.BeanFactory"></bean>
+
+</beans>
