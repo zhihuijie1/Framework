@@ -3,6 +3,7 @@ package com.spring.bean.test;
 import com.spring.bean.BeanFactory;
 import com.spring.bean.Book;
 import com.spring.bean.Student;
+import com.spring.bean.User;
 import jdk.internal.org.objectweb.asm.util.ASMifiable;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -28,6 +29,9 @@ public class Test3 {
         Book book = applicationContext.getBean("factory", Book.class);
         System.out.println(book);
 
-
+        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("applicationContext.xml");
+        User user = applicationContext1.getBean("user", User.class);
+        System.out.println("获取bean");
+        ((ClassPathXmlApplicationContext)applicationContext1).close();
     }
 }

@@ -38,11 +38,13 @@
         但是不许要全部一一导入，导入context就连带一块导入其他的了-->
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>5.3.5</version>
+      <version>5.3.23</version>
     </dependency>
+
 
     <!--为了方便测试，也导入junit环境依赖-->
 
