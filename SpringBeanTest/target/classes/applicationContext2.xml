@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--引入一个date对象-->
+    <bean id="date1" class="java.util.Date"></bean>
+
+
+    <!--引入一个mouse1对象，并对其属性进行赋值-->
+    <bean id="mouse1" class="com.spring.bean.Mouse">
+        <property name="name" value="Jurry"></property>
+        <!--引用外部的bean-->
+        <property name="birthday" ref="date1"></property>
+    </bean>
+
+
+    <bean id="cat1" class="com.spring.bean.Cat">
+        <property name="name" value="Tom"></property>
+        <property name="mouse">
+            <!--引用内部的bean-->
+            <bean class="com.spring.bean.Mouse">
+                <property name="name" value="Jerry2"></property>
+                <property name="birthday">
+                    <bean class="java.util.Date"></bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+
+    <!--级联引入-->
+    <bean id="mouse2" class="com.spring.bean.Mouse"></bean>
+    <bean id="cat2" class="com.spring.bean.Cat">
+        <property name="name" value="Tom2"></property>
+        <property name="mouse" ref="mouse2"></property>
+        <property name="mouse.name" value="jack"></property>
+        <property name="mouse.birthday">
+            <bean class="java.util.Date"></bean>
+        </property>
+    </bean>
+
+
+</beans>

@@ -10,6 +10,7 @@ public class User {
     }
 
     public void setUserid(Integer userid) {
+        System.out.println("setUserid");
         this.userid = userid;
     }
 
@@ -18,6 +19,7 @@ public class User {
     }
 
     public void setUsername(String username) {
+        System.out.println("setUsername");
         this.username = username;
     }
 
@@ -26,6 +28,7 @@ public class User {
     }
 
     public void setPassword(String password) {
+        System.out.println("setPassword");
         this.password = password;
     }
 

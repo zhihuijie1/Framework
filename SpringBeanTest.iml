@@ -3,7 +3,10 @@
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$/SpringBeanTest" dumb="true">
       <sourceFolder url="file://$MODULE_DIR$/SpringBeanTest/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SpringBeanTest/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/SpringBeanTest/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/SpringBeanTest/src/test/resources" type="java-test-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/SpringBeanTest/src/target" />
     </content>
   </component>
 </module>

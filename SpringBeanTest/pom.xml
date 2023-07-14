@@ -5,7 +5,7 @@
   <groupId>org.example</groupId>
   <artifactId>SpringBeanTest</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <!--<packaging>pom</packaging>-->
 
   <distributionManagement>
     <site>
@@ -17,6 +17,21 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <build>
+    <finalName>demo1</finalName>
+
+
+    <!--&lt;!&ndash;单元测试时引用src/main/resources下的资源文件&ndash;&gt;
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+      <testResource>
+        <directory>src/main/resources</directory>
+      </testResource>
+    </testResources>-->
+  </build>
 
   <dependencies>
     <!--引入Spring依赖，引入的主要是spring中的bean,context,core,expression
@@ -39,4 +54,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+
+
 </project>

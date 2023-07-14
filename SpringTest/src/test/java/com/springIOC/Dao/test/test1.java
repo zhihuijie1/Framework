@@ -1,6 +1,7 @@
 package com.springIOC.Dao.test;
 
 import com.springIOC.Dao.EmpDao;
+import com.springIOC.Dao.impl.NullDao;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -17,5 +18,10 @@ public class test1 {
         EmpDao empDaoimpl = applicationContext.getBean("EmpDaoimpl", EmpDao.class);
         //调用对象的方法。
         emptDao.addEmp();
+
+
+        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("applicationContext.xml");
+        NullDao user2 = (NullDao)applicationContext.getBean("user2");
+        user2.addEmp();
     }
 }

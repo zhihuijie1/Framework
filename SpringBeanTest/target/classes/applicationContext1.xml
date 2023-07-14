@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
 
     <bean id="user1" class="com.spring.bean.User"></bean>
 
@@ -30,5 +31,18 @@
     <bean id="user4" class="com.spring.bean.User" p:userid="4" p:username="hhhh" p:password="123456"></bean>
     <bean id="user5" class="com.spring.bean.User" c:userid="5" c:username="loplo" c:password="123456"></bean>
 
+    <!-- 4：注入空值与特殊符号-->
+    <bean id="user6" class="com.spring.bean.User">
+        <!--注入空值-->
+        <property name="userid">
+            <null></null>
+        </property>
+        <!--特殊符号 转义字符 &:&amp; , <:&lt; , >:&gt;  后面的;别忘记写-->
+        <!--因为这些特殊符号在xml语言中有特殊的含义-->
+        <property name="password" value="&amp;o123"></property>
+        <!-- 特殊符号  <![CDATA[内容]]> -->
+        <property name="username">
+            <value><![CDATA[&><FUCKING FUCKED]]></value>
+        </property>
+    </bean>
 </beans>
-
