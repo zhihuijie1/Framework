@@ -1,0 +1,16 @@
+package com.spring.test;
+
+import com.spring.dao.UserDao;
+import com.spring.service.UserService;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Text2 {
+    @Test
+    public void get() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext2.xml");
+        UserService userService = applicationContext.getBean("userServiceImpl", UserService.class);
+        userService.add();
+    }
+}

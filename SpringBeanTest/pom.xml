@@ -37,8 +37,6 @@
     <!--引入Spring依赖，引入的主要是spring中的bean,context,core,expression
         但是不许要全部一一导入，导入context就连带一块导入其他的了-->
 
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
