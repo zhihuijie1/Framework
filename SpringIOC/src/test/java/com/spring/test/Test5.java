@@ -71,7 +71,15 @@ public class Test5 {
                 if (method.getName().equals("drink")) {
                     System.out.println("喝酒");
                     System.out.println("我日你大爷");
+                    //Method 类是 Java 反射 API 的一部分,它包含了关于方法的信息，如方法名、返回类型、参数列表等。
+                    //invoke: 这是 Method 类的一个方法，用于实际调用目标方法。
+                    //invoke 方法的签名为 Object invoke(Object obj, Object[] args)。、
+                    //obj -> 锁定是那个对象的方法
+                    //args -> Object[]数组，包含目标方法的实际参数。
                     res = method.invoke(dinner, args);
+                    //method.invoke(dinner, args)
+                    //的作用是通过反射机制调用 dinner 对象（目标对象）中的 method（eat） 方法，
+                    //并传递 args 数组作为该方法的参数。
                     System.out.println("这就喝完了，你奶奶");
                 } else {
                     res = method.invoke(dinner, args);
