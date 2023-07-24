@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/SpringBeanTest/pom.xml" />
         <option value="$PROJECT_DIR$/springBean/pom.xml" />
         <option value="$PROJECT_DIR$/SpringIOC/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringAOP/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
