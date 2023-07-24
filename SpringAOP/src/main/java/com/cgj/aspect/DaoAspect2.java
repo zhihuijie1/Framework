@@ -5,13 +5,15 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-@Order(2)
+
+@Order(1)
 @Aspect
 @Component
-public class DaoAspect {
+public class DaoAspect2 {
     //切点
     @Pointcut("execution(* com.cgj.dao.UserDao.addUser(..))")
-    public void pointCut() {}
+    public void pointCut() {
+    }
 
     /**
      * 前置通知
@@ -21,8 +23,8 @@ public class DaoAspect {
     @Before("pointCut()")
     public void beforeAspect(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
-        System.out.println("我是前置通知");
-        System.out.println("前置通知获取被增强方法的参数 -- " + args);
+        System.out.println("我是前置通知 ---------- 2");
+        System.out.println("前置通知获取被增强方法的参数 -- " + args + " ---------- 2");
     }
 
     /**
@@ -31,7 +33,7 @@ public class DaoAspect {
      */
     @After("pointCut()")
     public void afterAspect() {
-        System.out.println("我是后置通知");
+        System.out.println("我是后置通知 ---------- 2");
     }
 
     /**
@@ -41,7 +43,7 @@ public class DaoAspect {
      */
     @AfterReturning(value = "pointCut()", returning = "res")
     public void methodAfterRuterning(JoinPoint joinPoint, Object res) {
-        System.out.println("我是返回通知，增强方法的返回值是" + res);
+        System.out.println("我是返回通知，增强方法的返回值是" + res + " ---------- 2");
     }
 
 
@@ -53,23 +55,24 @@ public class DaoAspect {
      */
     @AfterThrowing(value = "pointCut()", throwing = "ex")
     public void methodAfterThrowing(Exception ex) {
-        System.out.println("我是异常通知");
+        System.out.println("我是异常通知 ---------- 2");
     }
 
-    /** 环绕通知:
+    /**
+     * 环绕通知:
      * 在切点方法之前和之后都进行功能的增强
      * 需要在通知中定义方法执行的位置,并在执行位置之前和之后自定义增强的功能
      * 方法列表可以通过ProceedingJoinPoint获取执行的切点
      * 通过proceedingJoinPoint.proceed()方法控制切点方法的执行位置
      * proceedingJoinPoint.proceed()方法会将切点方法的返回值获取到,并交给我们,可以做后续处理
      * 我们在环绕通知的最后需要将切点方法的返回值继续向上返回,否则切点方法在执行时接收不到返回值
-     * */
+     */
 
     @Around("pointCut()")
     public Object methodAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        System.out.println("前置输出");
+        System.out.println("前置输出 ---------- 2");
         Object res = proceedingJoinPoint.proceed();//被加强方法执行的位置
-        System.out.println("后置输出");
+        System.out.println("后置输出 ---------- 2");
         return res;
     }
 }
