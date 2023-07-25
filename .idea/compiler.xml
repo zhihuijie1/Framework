@@ -10,6 +10,7 @@
         <module name="SpringAOP" />
         <module name="SpringTest" />
         <module name="SpringIOC" />
+        <module name="SpringJdbcTemplate" />
         <module name="SpringBeanTest" />
       </profile>
     </annotationProcessing>

@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/SpringBeanTest/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringIOC/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SpringIOC/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringJdbcTemplate/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringJdbcTemplate/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
