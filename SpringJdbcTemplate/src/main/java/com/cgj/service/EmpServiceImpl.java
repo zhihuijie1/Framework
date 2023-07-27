@@ -27,7 +27,7 @@ public class EmpServiceImpl implements EmpService{
 
     @Override
     public int addEmp(Emp emp) {
-        return 0;
+        return empDao.addEmp(emp);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.cgj.dao;
 
 import com.cgj.pojo.Emp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -49,16 +50,24 @@ public class EmpDaoImpl implements EmpDao {
 
     @Override
     public int addEmp(Emp emp) {
-        return 0;
+        String sql = "insert into student values(?,?,?,?,?,?,?)";
+        Object[] args = {emp.getEname(), emp.getJob(), emp.getMgr(), emp.getHiredate(), emp.getSal(), emp.getComm(), emp.getDeptno()};
+        int i = jdbcTemplate.update(sql, args);
+        return i;
     }
 
     @Override
     public int updateEmp(Emp emp) {
-        return 0;
+        String sql = "update emp set ename =? , job =?, mgr=? , hiredate =?, sal=?, comm=?, deptno =? where empno =?";
+        Object[] args = {emp.getEname(), emp.getJob(), emp.getMgr(), emp.getHiredate(), emp.getSal(), emp.getComm(), emp.getDeptno()};
+        int i = jdbcTemplate.update(sql, args);
+        return i;
     }
 
     @Override
     public int deleteEmp(int empno) {
-        return 0;
+        String sql = "delete  from emp where empno =?";
+        int i = jdbcTemplate.update(sql, empno);
+        return i;
     }
 }

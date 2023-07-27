@@ -6,6 +6,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:aop="http://www.springframework.org/schema/aop"
+
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
@@ -20,8 +21,6 @@
 
     <!--aop autoProxy 自动生成代理对象 -->
     <aop:aspectj-autoproxy/>
-
-
 
 </beans>
 
