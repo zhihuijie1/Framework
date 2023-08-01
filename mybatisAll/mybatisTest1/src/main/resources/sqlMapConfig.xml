@@ -7,7 +7,7 @@
     <properties resource="jdbc.properties"></properties>
     <settings>
         <!--指定一下使用哪个日志配置-->
-        <setting name="logImpl" value="LOG4J2"/>
+        <setting name="logImpl" value="log4j"/>
     </settings>
     <typeAliases>
         <package name="com.cgj.pojo"/>
@@ -27,6 +27,8 @@
     <!--加载mapper映射文件-->
     <mappers>
         <mapper resource="com/cgj/mapper/DeptMapper.xml"/>
+        <mapper resource="com/cgj/mapper/EmpMapper.xml"/>
+        <mapper resource="com/cgj/mapper/EmpMapper2.xml"/>
     </mappers>
 </configuration>
 <!--注意点

@@ -1,6 +1,7 @@
 package com.cgj.Test;
 
 import com.cgj.pojo.Dept;
+import com.cgj.pojo.Emp;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -11,7 +12,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
+import java.util.*;
 
 public class Test1 {
     private SqlSession sqlSession = null;
@@ -29,13 +30,57 @@ public class Test1 {
         sqlSession = sqlSessionFactory.openSession();
     }
 
-    @Test
+    /*@Test
     public void get() throws IOException {
         List<Dept> findAll = sqlSession.selectList("findAll");
         for (Dept dept : findAll) {
             System.out.println(dept);
         }
     }
+
+    @Test
+    public void findOne() {
+        Emp findOne = sqlSession.selectOne("findOne");
+        System.out.println(findOne);
+    }
+
+    @Test
+    public void testSelectList() {
+        // 查询多个对象的List集合
+        System.out.println("sqlSession查询对象List集合");
+        List<Emp> emps = sqlSession.selectList("EmpMapper.findAll");
+        emps.forEach(System.out::println);
+    }
+
+    @Test
+    public void testSelectMap() {
+        System.out.println("sqlSession查询对象Map集合");
+        Map<Integer, Emp> empMap = sqlSession.selectMap("findMap", "EMPNO");
+        Set<Integer> empnos = empMap.keySet();
+        for (Integer empno : empnos) {
+            System.out.println(empno + "::" + empMap.get(empno));
+        }
+    }*/
+
+    @Test
+    public void testfindByEmpno() {
+        // 测试单个基本数据类型作为参数
+        Emp findByEmpno = sqlSession.selectOne("findByEmpno", 7782);
+        System.out.println(findByEmpno);
+    }
+
+    @Test
+    public void testfindEmpByDeptnoAndSal() {
+        // 测试Map集合作为参数
+        HashMap<String, Object> args = new HashMap<>();
+        args.put("deptno", 20);
+        args.put("mgr", 1300.0);
+        List<Emp> findEmpByDeptnoAndSal = sqlSession.selectList("findEmpByDeptnoAndSal", args);
+        for (Emp emp : findEmpByDeptnoAndSal) {
+            System.out.println(emp);
+        }
+    }
+
 
     @After
     public void after() {
