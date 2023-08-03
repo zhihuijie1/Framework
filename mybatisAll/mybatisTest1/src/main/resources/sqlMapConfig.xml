@@ -29,6 +29,7 @@
         <mapper resource="com/cgj/mapper/DeptMapper.xml"/>
         <mapper resource="com/cgj/mapper/EmpMapper.xml"/>
         <mapper resource="com/cgj/mapper/EmpMapper2.xml"/>
+        <mapper resource="com/cgj/mapper/EmpMapper3.xml"/>
     </mappers>
 </configuration>
 <!--注意点

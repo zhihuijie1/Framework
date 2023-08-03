@@ -82,6 +82,45 @@ public class Test1 {
     }
 
 
+    @Test
+    public void testfindEmpByDeptnoAndSal2() {
+        //测试对象作为参数
+        Emp emp = new Emp();
+        emp.setDeptno(20);
+        emp.setSal(1500.0);
+        List<Emp> findEmpByDeptnoAndSal2 = sqlSession.selectList("findEmpByDeptnoAndSal2", emp);
+        for (Emp emp1 : findEmpByDeptnoAndSal2) {
+            System.out.println(emp1);
+        }
+    }
+
+    @Test
+    public void testAddEmp() {
+        Emp emp = new Emp(7935,"按住啦Baby","SALESMAN",7839,new Date(),3100.0, 200.0,10);
+        int addEmp = sqlSession.update("addEmp", emp);
+        System.out.println(addEmp);
+        //注意增删改要提交事务
+        //sqlSession.commit();
+    }
+
+    @Test
+    public void testDeleteEmp() {
+        int update = sqlSession.update("EmpMapper3.deleteEmp", 7935);
+        System.out.println(update);
+        sqlSession.commit();
+    }
+
+    @Test
+    public void testUpdateEmp() {
+        Emp emp = new Emp();
+        emp.setEmpno(7900);
+        emp.setEname("你爷爷");
+        int update = sqlSession.update("EmpMapper3.updateEmp", emp);
+        System.out.println(update);
+        sqlSession.commit();
+    }
+
+
     @After
     public void after() {
         //关闭SqlSession对象，释放数据库连接资源。在使用完SqlSession后，务必及时关闭，以防止资源泄漏。

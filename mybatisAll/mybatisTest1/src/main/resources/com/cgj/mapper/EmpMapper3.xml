@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="EmpMapper3">
+
+    <!--增加一条数据-->
+    <!--public int addEmp(Emp emp){}-->
+    <select id="addEmp" resultType="int" parameterType="emp">
+        insert into emp values(#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno});
+    </select>
+
+    <!--删除数据-->
+    <!--public int deleteEmp (int empno){}-->
+    <select id="deleteEmp" resultType="integer" parameterType="integer">
+        delete from emp where EMPNO = #{empno};
+    </select>
+
+    <!--修改一条数据-->
+    <!--public int updateEmp(Emp emp)-->
+    <select id="updateEmp" resultType="integer" parameterType="emp">
+        update emp set ENAME = #{ename} where EMPNO = #{empno};
+    </select>
+
+
+</mapper>

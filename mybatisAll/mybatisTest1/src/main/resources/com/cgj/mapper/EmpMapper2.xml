@@ -33,4 +33,10 @@
     </select>
 
 
+    <!--参数为对象-->
+    <select id="findEmpByDeptnoAndSal2" resultType="emp" parameterType="emp">
+        /*注意sql语句中的#{...}填写的是对象对应的属性名称*/
+        select * from emp where DEPTNO = #{deptno} and SAL &gt;= #{sal};
+    </select>
+
 </mapper>
