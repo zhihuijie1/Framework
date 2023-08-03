@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cgj.mapper.EmpMapper">
+
+    <!--查询emp中所有的成员信息-->
+    <select id="findAllEmps" resultType="Emp" >
+        select * from emp;
+    </select>
+
+    <!--删除数据库中一个成员-->
+    <select id="deleteEmp" resultType="integer">
+        delete from emp where EMPNO = #{empno};
+    </select>
+
+</mapper>

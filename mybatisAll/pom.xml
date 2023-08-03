@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mybatisTest1</module>
+        <module>mybatisTest2</module>
     </modules>
 
     <properties>
