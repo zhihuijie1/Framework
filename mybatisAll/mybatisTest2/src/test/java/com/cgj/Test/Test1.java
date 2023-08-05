@@ -12,7 +12,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class Test1 {
 
@@ -32,15 +34,35 @@ public class Test1 {
 
     @Test
     public void test() {
-        //获取到EmpMapper的实现类对象
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
-        List<Emp> emps = mapper.findAllEmps();
+
+        /*List<Emp> emps = mapper.findByEmpnoAndSal(10, 1000.0);
+        emps.forEach(System.out::println);*/
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("dno",10);
+        map.put("salary", 1000.0);
+        List<Emp> emps = mapper.findByDeptnoAndSal2(map);
         emps.forEach(System.out::println);
-        mapper.deleteEmp(7900);
+
+
+        /*Emp emp = new Emp();
+        emp.setDeptno(10);
+        emp.setSal(1000.0);
+        List<Emp> emps3 = mapper.findByDeptnoAndSal3(emp);
+        emps3.forEach(System.out::println);*/
+
+        /*Emp emp1 = new Emp();
+        Emp emp2 = new Emp();
+        emp1.setDeptno(10);
+        emp2.setSal(1000.0);
+        List<Emp> emps = mapper.findByDeptnoAndSal4(emp1, emp2);
+        emps.forEach(System.out::println);*/
     }
     @After
     public void after() {
         //关闭SqlSession对象，释放数据库连接资源。在使用完SqlSession后，务必及时关闭，以防止资源泄漏。
         sqlSession.close();
     }
+    //C:\Users\86159\AppData\Local\New Technology Studio\Apps\OpenIV\
 }
