@@ -50,6 +50,12 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+        <dependency>
+            <groupId>com.cgj</groupId>
+            <artifactId>mybatisTest1</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
         <!--&lt;!&ndash;log4j2&ndash;&gt;
         <dependency>

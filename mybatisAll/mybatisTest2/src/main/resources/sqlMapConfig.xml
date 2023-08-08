@@ -26,6 +26,6 @@
     </environments>
     <!--加载mapper映射文件-->
     <mappers>
-        <mapper resource="com/cgj/mapper/EmpMapper.xml"/>
+        <package name="com.cgj.mapper"/>
     </mappers>
 </configuration>

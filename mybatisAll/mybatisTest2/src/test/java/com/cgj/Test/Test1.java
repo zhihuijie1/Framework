@@ -1,6 +1,8 @@
 package com.cgj.Test;
 
 import com.cgj.mapper.EmpMapper;
+import com.cgj.mapper.EmpMapper2;
+import com.cgj.pojo.Dept;
 import com.cgj.pojo.Emp;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -19,6 +21,7 @@ import java.util.Objects;
 public class Test1 {
 
     private SqlSession sqlSession;
+
     @Before
     public void before() throws IOException {
         //SqlSessionFactoryBuilder是MyBatis框架中的一个辅助类，用于构建SqlSessionFactory。
@@ -40,7 +43,7 @@ public class Test1 {
         emps.forEach(System.out::println);*/
 
         HashMap<String, Object> map = new HashMap<>();
-        map.put("dno",10);
+        map.put("dno", 10);
         map.put("salary", 1000.0);
         List<Emp> emps = mapper.findByDeptnoAndSal2(map);
         emps.forEach(System.out::println);
@@ -59,6 +62,23 @@ public class Test1 {
         List<Emp> emps = mapper.findByDeptnoAndSal4(emp1, emp2);
         emps.forEach(System.out::println);*/
     }
+
+    @Test
+    public void testFindByEname() {
+        EmpMapper2 mapper = sqlSession.getMapper(EmpMapper2.class);
+        List<Emp> a = mapper.findByEname("a");
+        a.forEach(System.out::println);
+    }
+
+    @Test
+    public void test2() {
+        EmpMapper2 mapper = sqlSession.getMapper(EmpMapper2.class);
+        int i = mapper.addDept(new Dept(null, "fuck", "dsdsdsdsd"));
+        System.out.println(i);
+        sqlSession.commit();
+    }
+
+
     @After
     public void after() {
         //关闭SqlSession对象，释放数据库连接资源。在使用完SqlSession后，务必及时关闭，以防止资源泄漏。

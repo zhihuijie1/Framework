@@ -5,41 +5,58 @@
 <mapper namespace="com.cgj.mapper.EmpMapper">
 
     <!--查询emp中所有的成员信息-->
-    <select id="findAllEmps" resultType="Emp" >
-        select * from emp;
+    <select id="findAllEmps" resultType="Emp">
+        select *
+        from emp;
     </select>
 
     <!--删除数据库中一个成员-->
     <select id="deleteEmp" resultType="integer">
-        delete from emp where EMPNO = #{empno};
+        delete
+        from emp
+        where EMPNO = #{empno};
     </select>
 
     <!--根据员工编号来查询单个员工信息-->
     <!--Emp findByEmpno(int empno);-->
     <select id="findByEmpno" parameterType="int" resultType="emp">
-        select * from emp where EMPNO = #{empno};
+        select *
+        from emp
+        where EMPNO = #{empno};
     </select>
 
     <!--根据员工编号和薪资下限去查询员工信息-->
     <!--List<Emp> findByEmpnoAndSal(@Param("p1") int deptno, @Param("p2") double sal);-->
     <select id="findByEmpnoAndSal" resultType="emp">
-        select * from emp where DEPTNO = #{p1} and SAL >= #{p2};
+        select *
+        from emp
+        where DEPTNO = #{p1}
+          and SAL >= #{p2};
     </select>
 
 
     <!--List<Emp> findByDeptnoAndSal2(Map<String,Object> map);-->
     <select id="findByDeptnoAndSal2" resultType="emp" parameterType="map">
-        select * from emp where DEPTNO =#{dno} and SAL >= #{salary};
+        select *
+        from emp
+        where DEPTNO = #{dno}
+          and SAL >= #{salary};
     </select>
 
     <!--List<Emp> findByDeptnoAndSal3(Emp emp);-->
     <select id="findByDeptnoAndSal3" resultType="emp" parameterType="emp">
-        select * from emp where DEPTNO =#{deptno} and SAL >= #{sal};
+        select *
+        from emp
+        where DEPTNO = #{deptno}
+          and SAL >= #{sal};
     </select>
 
     <!--List<Emp> findByDeptnoAndSal4(@Param("empa") Emp empa, @Param("empb") Emp empb);-->
     <select id="findByDeptnoAndSal4" resultType="emp">
-        select * from emp where deptno =#{empa.deptno} and sal >= #{empb.sal}
+        select *
+        from emp
+        where deptno = #{empa.deptno}
+          and sal >= #{empb.sal}
     </select>
 
 

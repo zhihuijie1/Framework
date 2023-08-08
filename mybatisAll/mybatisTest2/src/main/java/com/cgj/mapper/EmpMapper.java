@@ -25,4 +25,5 @@ public interface EmpMapper {
     List<Emp> findByDeptnoAndSal3(Emp emp);
 
     List<Emp> findByDeptnoAndSal4(@Param("empa") Emp empa, @Param("empb") Emp empb);
+
 }
