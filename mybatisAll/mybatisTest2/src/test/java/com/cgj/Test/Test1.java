@@ -5,6 +5,7 @@ import com.cgj.mapper.EmpMapper2;
 import com.cgj.mapper.EmpMapper3;
 import com.cgj.pojo.Dept;
 import com.cgj.pojo.Emp;
+import javafx.scene.input.DataFormat;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,6 +16,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -95,6 +99,18 @@ public class Test1 {
         int i = mapper.deleteByEmpno(7934);
         System.out.println(i);
         System.out.println(i);
+        sqlSession.commit();
+    }
+
+    @Test
+    public void test5() throws ParseException {
+        EmpMapper3 mapper = sqlSession.getMapper(EmpMapper3.class);
+        String dateFormatPattern  = "yyyy-mm-dd";
+        String dataString = "1981-02-20";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormatPattern);
+        Date parse = simpleDateFormat.parse(dataString);
+        List<Emp> emps = mapper.selectAll(new Emp(7499, "ALLEN", "SALESMAN", 7698, parse, 1600.00, 300.00, 30));
+        emps.forEach(System.out::println);
         sqlSession.commit();
     }
 

@@ -11,4 +11,28 @@
     <delete id="deleteByEmpno" >
         delete from emp where empno =#{empno}
     </delete>
+
+
+
+    <select id="selectAll" resultType="emp" parameterType="emp">
+        select * from emp
+        <where>
+            <!--使用if标签来动态的添加查询的条件-->
+            <if test="deptno != null">and DEPTNO=#{deptno}</if>
+            <if test="sal != null">and SAL>=#{sal}</if>
+        </where>
+        <!--使用choose标签来实现条件的选择-->
+        <choose>
+            <when test="empno == 'empno'">order by EMPNO</when>
+            <when test="hiredate == 'hiredate'">order by HIREDATE</when>
+        </choose>
+
+        <!-- 使用<trim>标签去除最后一个AND或OR -->
+        <trim prefix="AND" prefixOverrides="AND | OR">
+            <if test="deptno != null">
+                AND DEPTNO = #{deptno}
+            </if>
+        </trim>
+    </select>
+
 </mapper>
