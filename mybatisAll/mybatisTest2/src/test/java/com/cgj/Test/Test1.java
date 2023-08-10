@@ -2,6 +2,7 @@ package com.cgj.Test;
 
 import com.cgj.mapper.EmpMapper;
 import com.cgj.mapper.EmpMapper2;
+import com.cgj.mapper.EmpMapper3;
 import com.cgj.pojo.Dept;
 import com.cgj.pojo.Emp;
 import org.apache.ibatis.io.Resources;
@@ -73,7 +74,26 @@ public class Test1 {
     @Test
     public void test2() {
         EmpMapper2 mapper = sqlSession.getMapper(EmpMapper2.class);
-        int i = mapper.addDept(new Dept(null, "fuck", "dsdsdsdsd"));
+        int i = mapper.addDept2(new Dept(null, "fuckingfucked", "123123123"));
+        System.out.println(i);
+        sqlSession.commit();
+    }
+
+    @Test
+    public void test3() {
+        EmpMapper3 mapper = sqlSession.getMapper(EmpMapper3.class);
+        int i = mapper.updateEnameByEmpno(7369, "滚你妈");
+        System.out.println(i);
+        System.out.println(i);
+        sqlSession.commit();
+    }
+
+
+    @Test
+    public void test4() {
+        EmpMapper3 mapper = sqlSession.getMapper(EmpMapper3.class);
+        int i = mapper.deleteByEmpno(7934);
+        System.out.println(i);
         System.out.println(i);
         sqlSession.commit();
     }

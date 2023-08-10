@@ -9,4 +9,6 @@ public interface EmpMapper2 {
     List<Emp> findByEname(String ename);
 
     int addDept(Dept dept);
+
+    int addDept2(Dept dept);
 }
