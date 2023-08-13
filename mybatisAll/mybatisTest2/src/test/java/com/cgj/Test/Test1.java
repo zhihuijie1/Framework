@@ -27,6 +27,7 @@ public class Test1 {
 
     private SqlSession sqlSession;
 
+
     @Before
     public void before() throws IOException {
         //SqlSessionFactoryBuilder是MyBatis框架中的一个辅助类，用于构建SqlSessionFactory。
@@ -69,6 +70,7 @@ public class Test1 {
     }
 
     @Test
+
     public void testFindByEname() {
         EmpMapper2 mapper = sqlSession.getMapper(EmpMapper2.class);
         List<Emp> a = mapper.findByEname("a");
